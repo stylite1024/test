@@ -1,0 +1,26 @@
+{
+  "name": "stylite-blog",
+  "version": "2.0.0",
+  "description": "stylite-blog",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "docs:build": "vuepress-vite build src",
+    "docs:clean-dev": "vuepress-vite dev src --clean-cache",
+    "docs:dev": "vuepress-vite dev src",
+    "docs:update-package": "pnpm dlx vp-update",
+    "clean": "rimraf pnpm-lock.yaml && rimraf node_modules && rimraf dist.tar.gz"
+  },
+  "devDependencies": {
+    "@vuepress/bundler-vite": "2.0.0-rc.9",
+    "@vuepress/plugin-baidu-analytics": "2.0.0-rc.24",
+    "@vuepress/plugin-comment": "2.0.0-rc.25",
+    "@vuepress/plugin-feed": "2.0.0-rc.24",
+    "@vuepress/plugin-google-analytics": "2.0.0-rc.21",
+    "vue": "^3.4.21",
+    "vuepress": "2.0.0-rc.9",
+    "vuepress-plugin-search-pro": "2.0.0-rc.36",
+    "vuepress-theme-hope": "2.0.0-rc.36",
+    "rimraf": "^5.0.5"
+  }
+}
