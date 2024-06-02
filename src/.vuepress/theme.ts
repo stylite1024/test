@@ -76,10 +76,10 @@ export default hopeTheme({
 		// 警告: 这是一个仅供演示的测试服务，在生产环境中请自行部署并使用自己的服务！
 		comment: {
 			provider: 'Giscus',
-			repo: 'stylite1024/blog-giscus',
-			repoId: 'R_kgDOLt-YAQ',
-			category: 'Q&A',
-			categoryId: 'DIC_kwDOLt-YAc4CerqN',
+			repo: 'stylite1024/test',
+			repoId: 'R_kgDOMDsIow',
+			category: 'General',
+			categoryId: 'DIC_kwDOMDsIo84Cfymw',
 			mapping: 'og:title',
 			reactionsEnabled: true,
 			strict: true,
