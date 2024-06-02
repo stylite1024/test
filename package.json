@@ -9,7 +9,7 @@
     "docs:clean-dev": "vuepress-vite dev src --clean-cache",
     "docs:dev": "vuepress-vite dev src",
     "docs:update-package": "pnpm dlx vp-update",
-    "clean": "rimraf pnpm-lock.yaml && rimraf node_modules && rimraf dist.tar.gz"
+    "clean": "rimraf node_modules && rimraf dist.tar.gz"
   },
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.9",
