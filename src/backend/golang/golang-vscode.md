@@ -478,7 +478,58 @@ forr：for range
 
 
 
-### 7、安装make命令编译工具mingw
+### 7、golang项目目录结构
+
+参考：
+
+[golang-standards/project-layout: Standard Go Project Layout (github.com)](https://github.com/golang-standards/project-layout)
+
+[Go 学习笔记（84）— Go 项目目录结构（开发目录、测试目录、部署目录、项目管理目录 makefile、scripts、build、tools、文档目录、makefile规则）_golang项目目录结构-CSDN博客](https://blog.csdn.net/wohu1104/article/details/123209272?spm=1001.2014.3001.5506)
+
+源码地址：[stylite1024/golang-web (github.com)](https://github.com/stylite1024/golang-web)
+
+```tex
+.
+├── cmd
+│   ├── root.go
+│   └── version.go
+├── config
+│   └── info.go
+├── docker-compose.yml
+├── Dockerfile
+├── docs
+├── go.mod
+├── go.sum
+├── internal
+│   ├── handler
+│   │   └── handler.go
+│   ├── logger
+│   │   └── logger.go
+│   ├── logic
+│   └── router
+│       └── router.go
+├── LICENSE
+├── main.go
+├── Makefile
+├── pkg
+│   └── util
+│       └── response.go
+├── README.md
+├── README-zh.md
+├── scripts
+│   └── docker-entrypoint.sh
+└── web
+    ├── static
+    │   ├── favicon.ico
+    │   └── index.html
+    └── static.go
+```
+
+
+
+
+
+### 8、安装make命令编译工具mingw
 
 **MinGW 介绍**
 
@@ -515,7 +566,7 @@ https://blog.csdn.net/yvge669/article/details/124564622
 
 **Makefile参考1**
 
-源码地址：https://github.com/stylite1024/iris-web
+源码地址：[stylite1024/golang-web (github.com)](https://github.com/stylite1024/golang-web)
 
 ```makefile
 # 参考：https://github.com/adnanh/webhook/blob/master/Makefile
@@ -616,10 +667,6 @@ help:
 	@echo "	clean				: Cleaning up all the generated binary files"
 ```
 
-
-
-
-
 **Makefile参考2**
 
 ```makefile
@@ -698,11 +745,7 @@ make build
 
 
 
-
-
-
-
-### 8、缩减Golang编译后文件大小的三种方法
+### 9、缩减Golang编译后文件大小的三种方法
 
 推荐文章：https://zhuanlan.zhihu.com/p/313053187?utm_id=0
 
@@ -718,7 +761,7 @@ upx -9 -o main-compress.exe  main.exe
 
 
 
-### 9、go build编译后为exe程序添加ico图标
+### 10、go build编译后为exe程序添加ico图标
 
 下载工具resourcehacker，地址：https://www.angusj.com/resourcehacker/#download，zip版本解压
 
