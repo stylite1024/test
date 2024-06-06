@@ -24,7 +24,7 @@ export default navbar([
   {
     text: "前端",
     icon: "lefttop-line",
-    link: "/fontend/" 
+    link: "/frontend/" 
   },
     {
     text: "运维",
