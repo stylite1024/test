@@ -20,6 +20,11 @@ tag:
   - vue
 ---
 
+:::tip 摘要
+Html Vue3使用Dplayer播放器
+:::
+<!-- more -->
+
 ## 1、DPlayer H5播放器
 
 DPlayer是一个可爱的HTML5弹幕视频播放器，可以帮助人们轻松构建视频和弹幕。
