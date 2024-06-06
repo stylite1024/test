@@ -775,6 +775,103 @@ icon.ico为ico图标
 
 ICO图标在线生成工具：http://tools.jb51.net/aideddesign/ico_img
 
+### 11、使用Air实现Go程序实时热重载
+
+顾名思义，air能够提高开发效率。
+
+github:https://github.com/air-verse/air
+
+它支持以下特性：
+
+1. 彩色的日志输出
+2. 自定义构建或必要的命令
+3. 支持外部子目录
+4. 在 Air 启动之后，允许监听新创建的路径
+5. 更棒的构建过程
+
+#### 安装
+
+使用 Go 的版本为 1.22 或更高:
+
+```sh
+go install github.com/air-verse/air@latest
+```
+
+#### 使用
+
+在项目的根目录下创建  air.toml 文件
+
+```to
+root = "."
+tmp_dir = "tmp"
+
+[build]
+pre_cmd = []
+cmd = "go build -o ./tmp/main.exe ."
+post_cmd = []
+#bin = "tmp/main.exe"
+bin = "tmp/main.exe"
+#full_bin = "SET APP_ENV=dev & SET APP_USER=air & ./tmp/main.exe"
+full_bin = "./tmp/main.exe"
+args_bin = []
+include_ext = ["go", "tpl", "tmpl", "html"]
+exclude_dir = ["assets", "tmp", "vendor", "frontend/node_modules"]
+include_dir = []
+include_file = []
+exclude_file = []
+exclude_regex = ["_test\\.go"]
+exclude_unchanged = true
+follow_symlink = true
+log = "air.log"
+poll = false
+poll_interval = 500 # ms
+delay = 0 # ms
+stop_on_error = true
+send_interrupt = false
+kill_delay = 500 # nanosecond
+rerun = false
+rerun_delay = 500
+
+[log]
+time = false
+main_only = false
+
+[color]
+main = "magenta"
+watcher = "cyan"
+build = "yellow"
+runner = "green"
+
+[misc]
+# Delete tmp directory on exit
+clean_on_exit = true
+
+[screen]
+clear_on_rebuild = true
+keep_scroll = true
+
+[proxy]
+  enabled = false
+  proxy_port = 8090
+  app_port = 8080
+```
+
+热重载命令
+
+```sh
+air.exe -c air.toml
+```
+
+更方便的使用方法
+
+```sh
+# air.exe init 初始化，执行完成后会生成.air.toml,以后只需要执行air.exe即可
+air.exe init
+air.exe
+```
+
+
+
 
 
 ---
