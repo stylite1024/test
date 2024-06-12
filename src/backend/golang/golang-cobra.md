@@ -6,23 +6,23 @@ contributors: false
 isOriginal: false
 sticky: false
 
-title: Cobra现代CLI应用程序的库使用
+title: Golang库 - Cobra现代CLI应用程序库
 date: 2024-05-21
 head:
   - - meta
     - name: keywords
-      content: vscode go golang go环境 golang环境 goland makefile golang开发 base64Captcha captcha 验证码 golang验证码 cobra
+      content: vscode go golang go环境 golang环境 goland makefile golang开发 base64Captcha captcha 验证码 golang验证码 cobra golang每日一库
 category:
   - golang
 tag:
   - cobra
 ---
 :::tip 摘要
-Cobra现代CLI应用程序的库使用
+Cobra现代CLI应用程序库
 :::
 <!-- more -->
 
-# Cobra现代 CLI 应用程序的库使用
+## Golang库 - Cobra现代CLI应用程序库
 
 ## 1、cobra
 

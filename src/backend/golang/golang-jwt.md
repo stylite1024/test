@@ -6,7 +6,7 @@ contributors: false
 isOriginal: true
 sticky: false
 
-title: Golang使用golang-jwt生成和解析token
+title: Golang库-使用golang-jwt生成和解析token
 date: 2024-04-20
 head:
   - - meta
@@ -21,6 +21,8 @@ tag:
 JSON Web Token (JWT)是一种紧凑且URL安全的方式，用于在两个方之间传输声明。JWT中的声明被编码为一个JSON对象，并使用JSON Web Signature (JWS)进行数字签名。
 :::
 <!-- more -->
+
+## Golang库-使用golang-jwt生成和解析token
 
 ## 什么是JWT
 

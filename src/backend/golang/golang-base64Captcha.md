@@ -6,7 +6,7 @@ contributors: false
 isOriginal: true
 sticky: false
 
-title: golang base64图片验证码库base64Captcha 
+title: Golang库-base64图片验证码库base64Captcha 
 date: 2024-04-20
 head:
   - - meta
@@ -21,6 +21,8 @@ tag:
 Base64captcha是一个golang base64图片验证码生成库。Base64captcha支持任何 unicode 字符，并可轻松定制为支持数学、中文、韩文、日文、俄文、阿拉伯文等。
 :::
 <!-- more -->
+
+## Golang库-base64图片验证码库base64Captcha 
 
 ## 介绍
 web开发中，我们经常用到验证码。Base64captcha是一个golang base64图片验证码生成库，很方便我们直接使用，提高开发效率。
