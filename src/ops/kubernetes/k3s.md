@@ -555,3 +555,58 @@ Failed to create pod sandbox: rpc error: code = Unknown desc = failed to get san
 原因：国内无法使用dockerhub
 
 解决：需要使用镜像器加速器或者科学上网
+
+
+
+**问题三：部署kuboard端口冲突**
+
+如下
+
+```sh
+# kubectl apply -f kuboard-v3.yaml
+namespace/kuboard created
+configmap/kuboard-v3-config created
+serviceaccount/kuboard-boostrap created
+clusterrolebinding.rbac.authorization.k8s.io/kuboard-boostrap-crb unchanged
+daemonset.apps/kuboard-etcd created
+deployment.apps/kuboard-v3 created
+The Service "kuboard-v3" is invalid: spec.ports[1].nodePort: Invalid value: 30081: provided port is already allocated
+```
+
+解决：
+
+```sh
+# vi kuboard-v3.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  annotations: {}
+  labels:
+    k8s.kuboard.cn/name: kuboard-v3
+  name: kuboard-v3
+  namespace: kuboard
+spec:
+  ports:
+    - name: web
+      nodePort: 30080
+      port: 80
+      protocol: TCP
+      targetPort: 80
+    - name: tcp
+      nodePort: 30082 #修改为30082
+      port: 10081
+      protocol: TCP
+      targetPort: 10081
+    - name: udp
+      nodePort: 30082 #修改为30082
+      port: 10081
+      protocol: UDP
+      targetPort: 10081
+  selector:
+    k8s.kuboard.cn/name: kuboard-v3
+  sessionAffinity: None
+  type: NodePort
+```
+
+
+
