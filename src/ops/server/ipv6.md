@@ -1,3 +1,35 @@
+---
+article: true
+editLink: false
+lastUpdated: true
+contributors: false
+isOriginal: true
+sticky: false
+title: IPv6基础及应用
+date: 
+head:
+  - - meta
+    - name: keywords
+      content: vscode go golang go环境 golang环境 goland makefile golang开发 jwt golang-jwt token linux centos rockylinux rockylinux9 服务器 docker containerd
+category:
+  - 运维
+  - 服务器
+tag:
+  - linux
+  - 服务器
+  - 运维
+  - docker
+
+
+---
+
+:::tip 摘要
+IPv6基础及应用
+:::
+<!-- more -->
+
+
+
 ## 一、什么是IPv6
 
 IPv6（Internet Protocol Version 6）作为下一代互联网协议，旨在解决IPv4地址耗尽的问题。随着互联网设备的爆炸性增长，IPv6逐渐成为一种必然的选择。IPv6
