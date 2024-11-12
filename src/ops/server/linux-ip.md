@@ -56,13 +56,14 @@ timestamp=1714173099
 [ethernet]
 
 [ipv4]
-address1=192.168.8.24/24,192.168.8.2
-dns=223.5.5.5;119.29.29.29
+address1=192.168.8.101/24,192.168.8.2
+dns=223.5.5.5;119.29.29.29;
 method=manual
 
 [ipv6]
-addr-gen-mode=eui64
-method=auto
+addr-gen-mode=default
+address1=fd15:4ba5:5a2b:1008:d506:a337:89e3:57a1/64,fe80::250:56ff:fec0:2222
+method=manual
 
 [proxy]
 
@@ -71,31 +72,21 @@ nmcli connection load /etc/NetworkManager/system-connections/ens160.nmconnection
 
 # 激活网卡配置
 nmcli connection up /etc/NetworkManager/system-connections/ens160.nmconnection
+
+# 检查ipV4网关
+ip route show default
+
+# 检查ipV6网关
+ip -6 route show default
+
+# 测试ipV4地址是否可用
+ping baidu.com
+
+# 测试ipV6地址是否可用
+ping6 ipv6.baidu.com
 ```
 
-说明：这[ipv4]部分是我们需要修改的
-
-> [ipv4]
->
-> address1=IP/子网掩码,网关
->
-> dns=DNS地址1;DNS地址2;
->
-> method=manual
-
-快速修改方法
-
-```sh
-# 快速修改
-sed -i '12s/^/# /'  /etc/NetworkManager/system-connections/ens160.nmconnection
-sed -i '12a address1=192.168.8.xxx/24,192.168.8.2\ndns=223.5.5.5;119.29.29.29\nmethod=manual'  /etc/NetworkManager/system-connections/ens160.nmconnection
-
-# 重载配置
-nmcli connection load /etc/NetworkManager/system-connections/ens160.nmconnection 
-
-# 激活网卡配置
-nmcli connection up /etc/NetworkManager/system-connections/ens160.nmconnection
-```
+说明：这[ipv4]、[ipv6]部分是我们需要修改的
 
 
 
@@ -105,19 +96,38 @@ nmcli connection up /etc/NetworkManager/system-connections/ens160.nmconnection
 # 设置静态ip
 # auto ens33设置开机系统启动时启用该接口
 # vi /etc/network/interfaces
-auto ens33
-iface ens33 inet static
-address 192.168.2.157
+auto ens32
+# ipv4
+iface ens32 inet static
+address 192.168.8.101
 netmask 255.255.255.0
-gateway 192.168.2.2
+gateway 192.168.8.2
+# ipv6
+iface ens32 inet6 static
+address fd15:4ba5:5a2b:1008:d506:a337:89e3:57a1
+netmask 64 
+gateway fe80::250:56ff:fec0:2222
 
+# 重启网络
 # systemcatl restart networking
 
 # 设置dns
-# vi /etc/resolv.conf
-nameserver 114.114.114.114
-nameserver 8.8.8.8
-nameserver 8.8.8.4
+# vi /etc/resolv.conf 
+nameserver 192.168.8.2
+nameserver 223.5.5.5
+nameserver 119.119.119.119
+
+# 检查ipV4网关
+ip route show default
+
+# 检查ipV6网关
+ip -6 route show default
+
+# 测试ipV4地址是否可用
+ping baidu.com
+
+# 测试ipV6地址是否可用
+ping6 ipv6.baidu.com
 ```
 
 
