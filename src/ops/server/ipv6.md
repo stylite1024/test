@@ -6,7 +6,7 @@ contributors: false
 isOriginal: true
 sticky: false
 title: IPv6基础及应用
-date: 
+date: 2024-11-13
 head:
   - - meta
     - name: keywords
