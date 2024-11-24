@@ -105,6 +105,23 @@ GOPATH 的缺点
 
 **为了解决这所有的问题，Golang最终引入了GoModule的概念。**
 
+> 什么是GoModule？
+
+GoModule是Golang在1.11版本初步引入的概念，在1.12版本中正是开始使用，所以如果需要使用GoModule，那么需要保证你的Golang的版本在1.12或以上。
+另外需要说一下，Golang1.11和1.12版本虽然已经引入了GoModule的概念，但是GoModule是默认不开启的，如果需要开启，那么需要配置一个环境变量：GO111MODULE=on，默认是off。而在Golang1.13及以上的版本中，GoModule的默认配置为auto，即GoModule会通过你的目录下是否有go.mod文件来判断是否开启GoModule。所以Golang1.13+的版本中我们就不需要配置GO111MODULE属性了。
+所以如果你使用GoModule，那么就直接使用Golang1.13+的版本好了！
+
+那么究竟什么是GoModule？
+
+其实说得直白一下，GoModule就是一个用来取代GoPath的Golang的工作空间。
+我们之前说过，所有的Golang的文件，都需要放在GoPath目录下才能进行正确的编译和运行，而有了GoModule之后，那么我们就可以把文件放在GoModule目录下，而放在GoModule目录下的Golang文件，也可以正确地编译运行。
+
+> 那么我们有了GoModule之后，GoPath是不是就可以被舍弃了？
+
+不是的！我们之前说过，GoPath所引出的问题，就是因为第三方类库的包所导致的，所以我们在有了GoModule之后，GoPath和GoModule就分别负责不同的职责，共同为我们的Golang项目服务。GoPath我们用来存放我们从网上拉取的第三方依赖包。GoModule我们用来存放我们自己的Golang项目文件，当我们自己的项目需要依赖第三方的包的时候，我们通过GoModule目录下的一个go.mod文件来引用GoPath目录src包下的第三方依赖即可。这样依赖，既解决了原来只能局限在GoPath目录src包下进行编程的问题，也解决了第三方依赖包难以管理和重复依赖占用磁盘空间的问题。
+
+总而言之，在引入GoModule之后，我们不会直接在GoPath目录进行编程，而是把GoPath作为一个第三方依赖包的仓库，我们真正的工作空间在GoModule目录下。
+
 ![image-20240414182519351](./.golang-vscode.assets/image-20240414182519351.png)
 
 ### 3、设置环境变量
@@ -285,8 +302,12 @@ vscode设置cmder终端官方wiki:https://github.com/cmderdev/cmder/wiki/Seamles
 
 #### **Go插件**
 
+前提：由于go插件相关包在国外，国内无法下载，需要设置go代理环境变量，`go env -w GO111MODULE=on`
+`go env -w GOPROXY=https://goproxy.io,direct`
+
 更新 Go 工具：
-`ctrl + shift + P` 搜索 `Go: Install/Update Tools`，可能需要梯子
+
+`ctrl + shift + P` 搜索 `Go: Install/Update Tools`
 
 ![image-20240414182656064](./.golang-vscode.assets/image-20240414182656064.png)
 
